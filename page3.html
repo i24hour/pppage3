@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iStocks: Growth Roadmap - Page 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .presentation {
+            width: 100%;
+            margin: 0;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+        .slide {
+            min-height: 100vh;
+            padding: 60px 80px;
+            position: relative;
+            page-break-after: always;
+            page-break-inside: avoid;
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: -60px -80px 40px -80px;
+            padding: 30px 80px;
+            position: relative;
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #34495e;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .grid {
+            display: grid;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .grid-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .grid-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+
+        .year {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            background: rgba(255,255,255,0.9);
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-btn:hover {
+            background: #5a6fd8;
+            transform: scale(1.05);
+        }
+
+        .nav-btn.active {
+            background: #764ba2;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #e17055;
+        }
+
+        .feature {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 3px solid #667eea;
+        }
+
+        .risk-item {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        @media print {
+            body {
+                background: white !important;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .slide {
+                display: block !important;
+                min-height: calc(100vh - 1in);
+                height: auto;
+                padding: 60px 50px;
+                margin: 0;
+                box-shadow: none !important;
+                page-break-after: always;
+                page-break-inside: avoid;
+                background: white !important;
+                position: relative;
+            }
+
+            .navigation {
+                display: none !important;
+            }
+
+            .presentation {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                background: white !important;
+                width: 100% !important;
+                margin: 0 !important;
+            }
+
+            .slide-header {
+                margin: -60px -50px 40px -50px !important;
+                padding: 30px 50px !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                color-adjust: exact;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            }
+
+            .card, .feature, .highlight, .risk-item {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                color-adjust: exact;
+                break-inside: avoid;
+                margin-bottom: 20px;
+            }
+
+            .timeline-item {
+                break-inside: avoid;
+                margin-bottom: 25px;
+                page-break-inside: avoid;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0.5in;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 30px;
+            }
+            .slide-header {
+                margin: -40px -30px 30px -30px;
+                padding: 20px 30px;
+            }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slide 3: 3-Year Roadmap & Scalability Plan -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">Page 3 of 3</div>
+                <h1>3-Year Growth & Scalability Roadmap</h1>
+                <p class="subtitle">Strategic Milestones & Market Expansion</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="year">2025 - Foundation Year</div>
+                    <h3>Platform MVP & Market Entry</h3>
+                    <div class="grid grid-2">
+                        <div class="feature">
+                            <strong>Q1-Q2:</strong> Core multi-agent system deployment, SmartAPI Integration, basic UI/UX, Beta launch with 100 users, paper trading feature,Prompt-based trading in local languages
+                        </div>
+                        <div class="feature">
+                            <strong>Q3-Q4:</strong> mobile app release, Strategy Repository → share, like, comment, adopt strategies., Push towards marketing and funding rounds.
+                        </div>
+                    </div>
+                    <p><strong>Target:</strong> 10,000 paying users, ₹21Cr ARR</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="year">2026 - Scale & Diversify</div>
+                    <h3>Advanced Features & Market Expansion</h3>
+                    <div class="grid grid-2">
+                        <div class="feature">
+                            <strong>Q1-Q2:</strong> Advanced backtesting engine, convert to istocks brokerage, portfolio management dashboard
+                        </div>
+                        <div class="feature">
+                            <strong>Q3-Q4:</strong> crypto trading support, AI-powered insights, Repo monetization,Ads on google and other platforms
+                        </div>
+                    </div>
+                    <p><strong>Target:</strong> 50,000 users, ₹111Cr ARR, Series A funding</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="year">2027 - Market Leadership</div>
+                    <h3>Enterprise Solutions & International Expansion</h3>
+                    <div class="grid grid-2">
+                        <div class="feature">
+                            <strong>Q1-Q2:</strong> Enterprise API sales, institutional partnerships, istocks itself stock LLM model
+                        </div>
+                        <div class="feature">
+                            <strong>Q3-Q4:</strong> SEA market entry, white-label solutions to quant firms, Institutional SaaS, AI trading coach, Focus on more funding rounds
+                        </div>
+                    </div>
+                    <p><strong>Target:</strong> 100,000 users, ₹260Cr ARR, market leadership position</p>
+                </div>
+            </div>
+
+            <h2>Scalability Strategy</h2>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3>🏗️ Technical Scalability</h3>
+                    <p><strong>Microservices Architecture:</strong> Independent agent scaling</p>
+                    <p><strong>Cloud Infrastructure:</strong> AWS auto-scaling, global CDN</p>
+                    <p><strong>Database Optimization:</strong> Real-time data processing at scale</p>
+                    <p><strong>API Rate Management:</strong> Efficient broker API utilization</p>
+                </div>
+                <div class="card">
+                    <h3>🌍 Market Scalability</h3>
+                    <p><strong>Multi-Broker Support:</strong> Reduce platform dependency</p>
+                    <p><strong>Localization:</strong> Regional languages, local market features</p>
+                    <p><strong>Partnership Network:</strong> Financial institutions, fintechs</p>
+                    <p><strong>Regulatory Compliance:</strong> SEBI, international standards</p>
+                </div>
+            </div>
+
+            <h2>Risk Management & Mitigation</h2>
+            <div class="risk-item">
+                <strong>Market Risk:</strong> Diversified revenue streams, multiple broker integrations to reduce single points of failure
+            </div>
+            <div class="risk-item">
+                <strong>Regulatory Risk:</strong> Proactive compliance team, legal partnerships, transparent audit trails
+            </div>
+            <div class="risk-item">
+                <strong>Technology Risk:</strong> Robust testing protocols, disaster recovery, redundant systems architecture
+            </div>
+            <div class="risk-item">
+                <strong>Competition Risk:</strong> Strong IP protection, continuous innovation, superior user experience focus
+            </div>
+
+            <div class="highlight">
+                <strong>Vision 2030:</strong> By 2030, iStocks targets ~1M global users, with an expected ARR of ₹3,000–5,000 Cr, driven by strong Indian adoption and expansion into global retail trading markets.
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <a href="page1.html" class="nav-btn">Page 1</a>
+        <a href="page2.html" class="nav-btn">Page 2</a>
+        <a href="page3.html" class="nav-btn active">Page 3</a>
+        <button class="nav-btn" onclick="window.print()">📄 Print</button>
+    </div>
+
+    <script>
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Page 3 loaded successfully');
+        });
+    </script>
+</body>
+</html>
+
+
+
